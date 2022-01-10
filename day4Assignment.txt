@@ -1,0 +1,122 @@
+1) Research and find- What is Abstraction?
+
+The process of hiding the internal implementation and showing only the relevant data or highlighting the set of services which are going to be offered. Data abstraction deals with exposing the interface to the user and hiding the details of implementation. 
+-A method without body is known as abstract method. 
+-If a class contains abstract method then it is compulsory that class must be an abstract class, but if the class is already an abstract class then it is not neccessary to have an abstract class inside it.
+-If any class inherits an abstract class, then all the methods in the abstract class have to be declared in the class. If not implemented then it will throw error.
+-Abstract method in an abstract class are meant to be overriden in the concrete class otherwise error will be thrown.
+-We cannot create object of abstract class but we can create reference for it.
+
+There are two ways to achieve abstraction.
+a.by using abstract class
+-An abstract class is a special class that contains both abstract and non-abstract members in it.
+-It does not support abstract method.
+-There are no restrictions on abstract class method. 
+-By default interface variables are public,static and final.
+-Abstract keyword is used to declare abstract class.
+-Abstract allows to declare constructor as constructor initializes instance variable.
+
+b.by using interfaces (more accuracy to achieve abstraction)
+- Interface contains only abstract methods.We cannot create object of an interface.
+-It supports multiple inheritence.
+-By default interface methods are public or abstract.
+-No need to declare variable as public,static or final.
+-Interface keyword is used to declare interface.
+-Interface doesn't allow to create constructor, as constructor initializes instance variable. In interface it has only static and final variable.
+
+Advantages:
+a.Security- internal implementations are not known.
+b.Enhancement - internal functionalities can be changed or changes can be performed without affecting the end user/GUI.
+c.Maintainability - maintainance/modularity  of the application is improved. 
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2)Is Abstract class related to Abstraction ? find it.
+
+Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+A class which is declared with the abstract keyword is known as an abstract class in Java. It can have abstract and non-abstract methods (method with the body).It needs to be extended and its method implemented. It cannot be instantiated.
+-An abstract class is a special class that contains both abstract and non-abstract members in it.
+-It does not support abstract method.
+-There are no restrictions on abstract class method. 
+-By default interface variables are public,static and final.
+-Abstract keyword is used to declare abstract class.
+-Abstract allows to declare constructor as constructor initializes instance variable.
+
+
+for example:
+
+abstract class Vehicle					//abstract  class
+{
+	abstract void start();				//abstract method
+}
+
+class Car extends Vehicle
+{
+	void start()
+	{
+		System.out.println("Car starts with key");
+	}
+}
+
+class Scooter extends Vehicle
+{
+	void start()
+	{
+		System.out.println("Scooter starts with kick");
+	}
+	
+	public static void main(String[] args)
+	{
+		Car c=new Class();
+		c.start();
+
+		Scooter s=new Scooter();
+		s.start();
+	}
+}
+
+OUTPUT:
+Car starts with key
+Scooter starts with kick
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3)Interfaces also can have few things - what are those things can interfaces have apart from abstract methods?
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4)Can interfaces have normal variables ?
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+5)Can interfaces have methods with definitions ? if so how ? or what ?
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6)How to implement multiple inheritance using interfaces
+We can achieve multiple inheritence through interfaces becaues interfaces contains only abstrat method, which implementation is provided by sub classes.
+An interface contains variables and methods like a class but the methods in an interface are abstract by default unlike a class. Multiple inheritance by interface occurs if a class implements multiple interfaces or also if an interface itself extends multiple interfaces.
+
+interface Car {
+   void key();
+}
+interface Scooter {
+   void kick();
+}
+class Vehicle implements Car, Scooter {
+   public void key() {
+      System.out.println("Car starts with key");
+   }
+   public void kick() {
+      System.out.println("Scooter starts with kick");
+   }
+}
+public class perform {
+   public static void main(String args[]) {
+      Vehicle v = new Vehicle ();
+      v.key();
+      v.kick();
+   }
+}
+
+OUTPUT:
+Car starts with key
+Scooter starts with kick
